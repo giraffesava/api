@@ -8,6 +8,8 @@ const DB = process.env.DATABASE.replace(
   process.env.DATABASE_PASSWORD
 );
 
+const app = require("./app");
+
 mongoose
   .connect(DB, {
     useNewUrlParser: true,
@@ -16,8 +18,6 @@ mongoose
     useUnifiedTopology: true,
   })
   .then(() => console.log("DB connection successful!"));
-
-const app = require("./app");
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
